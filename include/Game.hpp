@@ -16,6 +16,7 @@
 #endif // INCLUDE_SDL
 
 #include <string>
+#include "State.hpp"
 using std::string;
 
 class Game{
@@ -23,17 +24,18 @@ class Game{
         string title;
         int width;
         int height;
-        Game(string mytitle, int mywidth, int myheight){//Constructor
-            title = mytitle;
-            width= mywidth;
-            height= myheight;
-        }
+        SDL_Window* window;
+        SDL_Renderer* renderer; 
+        Game(string mytitle, int mywidth, int myheight);
         static Game* instance;
-        
+        State* state;
 
     public:
         ~Game();
         static Game& GetInstance();
+        State& GetState();
+        SDL_Renderer* GetRenderer();
+        void Run();
 };
 
 

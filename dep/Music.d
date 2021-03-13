@@ -1,5 +1,5 @@
-dep/main.d: src/main.cpp /usr/include/stdc-predef.h \
- src/../include/Game.hpp /usr/include/c++/5/string \
+dep/Music.d: src/Music.cpp /usr/include/stdc-predef.h \
+ src/../include/Music.hpp /usr/include/c++/5/string \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -83,8 +83,7 @@ dep/main.d: src/main.cpp /usr/include/stdc-predef.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/c++/5/bits/functional_hash.h \
  /usr/include/c++/5/bits/hash_bytes.h \
- /usr/include/c++/5/bits/basic_string.tcc src/../include/State.hpp \
- src/../include/Sprite.hpp /usr/include/SDL2/SDL.h \
+ /usr/include/c++/5/bits/basic_string.tcc /usr/include/SDL2/SDL.h \
  /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
  /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h \
  /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
@@ -119,11 +118,12 @@ dep/main.d: src/main.cpp /usr/include/stdc-predef.h \
  /usr/include/SDL2/SDL_loadso.h /usr/include/SDL2/SDL_log.h \
  /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h \
- /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h
+ /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
+ /usr/include/SDL2/SDL_mixer.h
 
 /usr/include/stdc-predef.h:
 
-src/../include/Game.hpp:
+src/../include/Music.hpp:
 
 /usr/include/c++/5/string:
 
@@ -343,10 +343,6 @@ src/../include/Game.hpp:
 
 /usr/include/c++/5/bits/basic_string.tcc:
 
-src/../include/State.hpp:
-
-src/../include/Sprite.hpp:
-
 /usr/include/SDL2/SDL.h:
 
 /usr/include/SDL2/SDL_main.h:
@@ -468,3 +464,5 @@ src/../include/Sprite.hpp:
 /usr/include/SDL2/SDL_timer.h:
 
 /usr/include/SDL2/SDL_version.h:
+
+/usr/include/SDL2/SDL_mixer.h:
