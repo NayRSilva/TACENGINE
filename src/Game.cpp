@@ -53,10 +53,12 @@ Game::Game(string title, int width, int height){
 	}
 
 	if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER)!=0){//If failure on SDL
-		printf("Problema ao inicializar SDL: %s\n", SDL_GetError());
+		printf("Problema ao inicializar SDL: %s\n", SDL_GetError());	
 	}else{//If success
 		cout << "Sucesso no SDL, inicializando...\n";
-		IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF);
+		if(IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF)==0){
+			cout<<"erro ao carregar img_init";
+		};
 		Mix_Init(MIX_INIT_MP3);
 		Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024);
 		Mix_AllocateChannels(32);

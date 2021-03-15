@@ -4,9 +4,9 @@
 
 using std::cout;
 
-State::State(){
+State::State():bg("assets/img/ocean.jpg"){
     quitRequested = false;
-    bg= Sprite("./assets/img/teste.png");
+    // bg= Sprite("assets/img/ocean.jpg");
 
 
 }

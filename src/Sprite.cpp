@@ -9,8 +9,11 @@ Sprite::Sprite(){
     texture= nullptr;
 }
 
-Sprite::Sprite(string file){
-    texture = nullptr;
+Sprite::Sprite(string file):texture(IMG_LoadTexture(
+        Game::GetInstance().GetRenderer(),
+        file.c_str()    )){
+    
+    // texture = nullptr;
     Open(file);
     // if(IsOpen()){
     //     cout<<"textura aberta";
@@ -24,21 +27,24 @@ Sprite::~Sprite(){
 }
 
 void Sprite::Open(string file){
-    if(texture!=nullptr){
-        SDL_DestroyTexture(texture);
-    }
+    // SDL_Renderer* renderer = Game::GetInstance().GetRenderer();
+    // if(texture!=nullptr){
+    //     SDL_DestroyTexture(texture);
+    // }
 
-    SDL_Renderer* renderer = Game::GetInstance().GetRenderer();
-    texture = IMG_LoadTexture(renderer, file.c_str());
+
+    // texture = IMG_LoadTexture(renderer, file.c_str());
+    // SDL_Surface* surface= IMG_Load(file.c_str());
+    // texture = SDL_CreateTextureFromSurface(renderer, surface)
     if(texture==nullptr){
 		printf("Erro ao criar imagem: %s\n", SDL_GetError());
         exit(EXIT_FAILURE);
     }else{
         if(SDL_QueryTexture(texture, nullptr, nullptr, &width, &height)==0){
-        SetClip(0,0, width, height);
+            SetClip(0,0, width, height);
 
         }else{
-		printf("Erro na querytexture: %s\n", SDL_GetError());
+		    printf("Erro na querytexture: %s\n", SDL_GetError());
             
         };
     }
@@ -59,7 +65,6 @@ int Sprite::GetHeight(){
     return clipRect.h;
 }
 void Sprite::Render(int x, int y){
-    // printf("width height %d %d",x,y);
 
     SDL_Renderer* renderer = Game::GetInstance().GetRenderer();
 
@@ -69,6 +74,7 @@ void Sprite::Render(int x, int y){
     dst.y= y;
     dst.w = clipRect.w;
     dst.h = clipRect.h;
+    // printf("x y %d %d",dst.x,dst.y);
     if(texture!=nullptr){
             if(SDL_RenderCopy(renderer, texture, &clipRect, &dst)==0){
         cout<<"Success";
