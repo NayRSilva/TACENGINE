@@ -15,7 +15,7 @@ State::State(){
 	go->box.x= 0;
 	go->box.y= 0;
 	
-	bg = new Sprite(*go, "assets/img/ocean.png");
+	bg = new Sprite(*go, "assets/img/ocean.jpg");
 	go->box.w= bg->GetWidth();
 	go->box.h= bg->GetHeight();
 	go->AddComponent(bg);
@@ -48,7 +48,6 @@ void State::Input() {
 		
 		// Se o evento for clique...
 		if(event.type == SDL_MOUSEBUTTONDOWN) {
-
 			// Percorrer de trás pra frente pra sempre clicar no objeto mais de cima
 			for(int i = objectArray.size() - 1; i >= 0; --i) {
 				// Obtem o ponteiro e casta pra Face.
@@ -61,6 +60,8 @@ void State::Input() {
 
 
 				if(go->box.Contains((float)mouseX, (float)mouseY) ) {
+				cout<<"buttondown\n";
+
 					Face* face = (Face*)go->GetComponent( "Face" );
 					if ( nullptr != face ) {
 						// Aplica dano
@@ -94,8 +95,8 @@ void State::LoadAssets(){
 
 void State::Update(float dt){
 		// getchar();
-	unsigned int aux= objectArray.size();
 	Input();
+	unsigned int aux= objectArray.size();
 	
 	for(unsigned int i = 0; i < aux; i++) {
 		objectArray[i]->Update(0);
@@ -139,7 +140,7 @@ void State::AddObject(int mouseX, int mouseY){
 	firstEnemy->box.w= penguin->GetWidth();
 	firstEnemy->box.h= penguin->GetHeight();
 	firstEnemy->AddComponent(penguin);
-	Sound *dieSound= new Sound(*firstEnemy, "assets/img/boom.wav");
+	Sound *dieSound= new Sound(*firstEnemy, "assets/audio/boom.wav");
 	firstEnemy->AddComponent(dieSound);
 	Face *penguinFace= new Face(*firstEnemy);
 	firstEnemy->AddComponent(penguinFace);

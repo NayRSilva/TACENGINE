@@ -9,11 +9,9 @@ Sprite::Sprite(GameObject& associated) : Component(associated){
     texture= nullptr;
 }
 
-Sprite::Sprite(GameObject& associated, string file): Component(associated), texture(IMG_LoadTexture(
-        Game::GetInstance().GetRenderer(),
-        file.c_str()    )){
+Sprite::Sprite(GameObject& associated, string file): Component(associated){
     
-    // texture = nullptr;
+    texture = nullptr;
     Open(file);
     if(IsOpen()){
         cout<<"textura aberta";
@@ -38,15 +36,16 @@ Sprite::~Sprite(){
 }
 
 void Sprite::Open(string file){
-    // SDL_Renderer* renderer = Game::GetInstance().GetRenderer();
-    // if(texture!=nullptr){
-    //     SDL_DestroyTexture(texture);
-    // }
+    SDL_Renderer* renderer = Game::GetInstance().GetRenderer();
+    if(texture!=nullptr){
+        SDL_DestroyTexture(texture);
+    }
 
 
-    // texture = IMG_LoadTexture(renderer, file.c_str());
-    // SDL_Surface* surface= IMG_Load(file.c_str());
-    // texture = SDL_CreateTextureFromSurface(renderer, surface)
+    texture = IMG_LoadTexture(renderer, file.c_str());
+    SDL_Surface* surface= IMG_Load(file.c_str());
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+
     if(texture==nullptr){
 		printf("Erro ao criar imagem: %s\n", SDL_GetError());
         exit(EXIT_FAILURE);
@@ -57,7 +56,7 @@ void Sprite::Open(string file){
         }else{
 		    printf("Erro na querytexture: %s\n", SDL_GetError());
             
-        };
+        }
     }
 
 }
@@ -75,16 +74,16 @@ int Sprite::GetWidth(){
 int Sprite::GetHeight(){
     return clipRect.h;
 }
-void Sprite::Render(int x, int y){
+void Sprite::Render(){
 
     SDL_Renderer* renderer = Game::GetInstance().GetRenderer();
 
 
     SDL_Rect dst;
-    dst.x= x;
-    dst.y= y;
-    dst.w = clipRect.w;
-    dst.h = clipRect.h;
+    dst.x= associated.box.x;
+    dst.y= associated.box.y;
+    dst.w = GetWidth();
+    dst.h = GetHeight();
     // printf("x y %d %d",dst.x,dst.y);
     if(texture!=nullptr){
             if(SDL_RenderCopy(renderer, texture, &clipRect, &dst)==0){

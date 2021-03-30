@@ -13,6 +13,7 @@ bool Rect::Contains(float mouseX, float mouseY){
         containX=true;
     }
     if((mouseY>=y)&&(mouseY<=currentYHeight)){//Idem ao de cima
+        containY=true;
 
     }
 

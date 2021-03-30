@@ -2,6 +2,8 @@
 #define _FACE_H_
 
 #include"Component.hpp"
+#include "../include/Sound.hpp"
+
 
 
 class Face : public Component{

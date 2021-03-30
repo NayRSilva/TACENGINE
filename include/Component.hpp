@@ -1,6 +1,7 @@
 #ifndef _COMP_H_
 #define _COMP_H_
 
+#include <iostream>
 #include <string>
 #include "GameObject.hpp"
 
