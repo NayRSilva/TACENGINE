@@ -19,7 +19,6 @@ void Face::Damage(int damage){
         if(sound!=nullptr){
             cout<< "pewpew\n";
             sound->Play();
-            SDL_Delay(100);
         }
         associated.RequestDelete();
     }
