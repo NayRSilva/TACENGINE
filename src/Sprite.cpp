@@ -5,20 +5,31 @@
 
 using std::cout;
 
-Sprite::Sprite(){
+Sprite::Sprite(GameObject& associated) : Component(associated){
     texture= nullptr;
 }
 
-Sprite::Sprite(string file):texture(IMG_LoadTexture(
+Sprite::Sprite(GameObject& associated, string file): Component(associated), texture(IMG_LoadTexture(
         Game::GetInstance().GetRenderer(),
         file.c_str()    )){
     
     // texture = nullptr;
     Open(file);
-    // if(IsOpen()){
-    //     cout<<"textura aberta";
-    // }
+    if(IsOpen()){
+        cout<<"textura aberta";
+    }
 }
+
+// Sprite::Sprite(string file):texture(IMG_LoadTexture(
+//         Game::GetInstance().GetRenderer(),
+//         file.c_str()    )){
+    
+//     // texture = nullptr;
+//     Open(file);
+//     // if(IsOpen()){
+//     //     cout<<"textura aberta";
+//     // }
+// }
 
 Sprite::~Sprite(){
     if(texture!=nullptr){
@@ -77,7 +88,7 @@ void Sprite::Render(int x, int y){
     // printf("x y %d %d",dst.x,dst.y);
     if(texture!=nullptr){
             if(SDL_RenderCopy(renderer, texture, &clipRect, &dst)==0){
-        cout<<"Success";
+        // cout<<"Success";
     }else{
 		printf("Erro no render copy: %s\n", SDL_GetError());
 
@@ -92,4 +103,15 @@ bool Sprite::IsOpen(){
     if(texture!=nullptr){
         return true;
     }else{ return false;};
+}
+
+void Sprite::Update(float dt){
+
+}
+
+bool Sprite::Is(string type){
+    if(type=="Sprite"){ 
+        return true;
+        }
+    return false;
 }

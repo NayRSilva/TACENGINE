@@ -3,14 +3,16 @@
 
 #include <string>
 #include <SDL2/SDL.h>
+#include"Component.hpp"
+#include"GameObject.hpp"
 using std::string;
 
 
-class Sprite{
+class Sprite : public Component{
     public:
 
-    Sprite();
-    Sprite(string file);
+    Sprite(GameObject& associated);
+    Sprite(GameObject& associated, string file);
     ~Sprite();
     void Open(string file);
 
@@ -19,6 +21,9 @@ class Sprite{
     int GetWidth();
     int GetHeight();
     bool IsOpen();
+    void Update(float dt);
+    bool Is(string type);
+
 
     private:
 

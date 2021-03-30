@@ -2,6 +2,10 @@
 #define _STATE_H_
 
 #include"Sprite.hpp"
+#include"Face.hpp"
+#include <string>
+#include<vector>
+using std::string;
 
 class State{
     public:
@@ -11,11 +15,17 @@ class State{
         void LoadAssets();
         void Update(float dt);
         void Render();
+        ~State();
 
     private:
 
-    Sprite bg;
+    vector<std::unique_ptr<GameObject>> objectArray;
+
+    Sprite *bg;
     bool quitRequested;
+    void Input();
+    void AddObject(int mouseX, int mouseY);
+
 };  
 
 #endif

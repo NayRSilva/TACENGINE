@@ -17,6 +17,7 @@
 
 #include <string>
 #include "State.hpp"
+
 using std::string;
 
 class Game{

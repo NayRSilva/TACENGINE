@@ -13,7 +13,7 @@ LIBS = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lm
 
 INC_PATHS = -I$(INC_PATH) $(addprefix -I,$(SDL_INC_PATH))
 
-FLAGS= -std=c++11 -Wall -pedantic -Wextra -Wno-uni
+FLAGS= -std=c++11 -Wall -pedantic -Wextra
 
 INC_PATH = include 
 SRC_PATH = src
