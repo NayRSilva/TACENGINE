@@ -46,7 +46,7 @@ void Face::Update(float dt){
 
     }
     interval = interval+dt;
-    cout<<"face: "<<dt<<"\n";
+    // cout<<"face: "<<dt<<"\n";
     if(destroy == true){
         cout<<"destruir \n";
         cout<<dt<<" total:"<<total_time<<"\n";

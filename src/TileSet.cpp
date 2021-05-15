@@ -11,7 +11,7 @@ TileSet::TileSet(int tileWidth, int tileHeight, string file) : tileWidth(tileWid
 
 	GameObject *go= new GameObject();
 
-	tileSet = new Sprite(*go, "assets/img/ocean.jpg");
+	tileSet = new Sprite(*go, file);
     if(tileSet!=nullptr){//se conseguir abrir o sprite
         cout<<"abrimos o sprite do tileset\n";
         columns = ((tileSet->GetWidth())/tileWidth);
