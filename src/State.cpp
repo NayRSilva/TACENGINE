@@ -3,22 +3,32 @@
 #include"../include/Face.hpp"
 #include"../include/Vec2.hpp"
 #include"../include/Sound.hpp"
-
+#include"../include/TileSet.hpp"
+#include"../include/TileMap.hpp"
 #include <iostream>
 
 using std::cout;
 
 State::State(){
     quitRequested = false;
+	// music.Play(-1);
 
 	GameObject *go= new GameObject();
 	go->box.x= 0;
 	go->box.y= 0;
+
 	
 	bg = new Sprite(*go, "assets/img/ocean.jpg");
+
+
 	go->box.w= bg->GetWidth();
 	go->box.h= bg->GetHeight();
 	go->AddComponent(bg);
+	TileSet *tileSet= new TileSet(64, 64, "assets/img/tileset.png");
+	TileMap *tileMap = new TileMap(*go,"assets/map/tileMap.txt", tileSet);
+	go->AddComponent(tileMap);
+
+
 	objectArray.emplace_back(go);
     // bg= Sprite("assets/img/ocean.jpg");
 
@@ -94,18 +104,22 @@ void State::LoadAssets(){
 }
 
 void State::Update(float dt){
-		// getchar();
-	Input();
+		// getchar();<<
+		// cout<<"\ntempo\n"<<dt;
+			Input();
+			// cout<<"det"<<dt<<"\n";
 	unsigned int aux= objectArray.size();
 	
 	for(unsigned int i = 0; i < aux; i++) {
-		objectArray[i]->Update(0);
+		objectArray[i]->Update(dt);
 	}
-
+	
 	for(int unsigned i = 0; i < objectArray.size(); i++) {
-		if(objectArray[i]->IsDead()){
-			objectArray.erase(objectArray.begin()+i);
-			i--;
+		if(objectArray[i]->IsDead()){			
+				objectArray.erase(objectArray.begin()+i);
+				i--;
+
+
 		}
 	}
  
@@ -132,17 +146,25 @@ void State::Render(){
 
 void State::AddObject(int mouseX, int mouseY){
 	cout<<"Adicionando Objeto\n";
+
+
 	GameObject *firstEnemy= new GameObject();
 	firstEnemy->box.x= mouseX;
 	firstEnemy->box.y= mouseY;
+
 	
 	Sprite *penguin = new Sprite(*firstEnemy, "assets/img/penguinface.png");
 	firstEnemy->box.w= penguin->GetWidth();
 	firstEnemy->box.h= penguin->GetHeight();
+
 	firstEnemy->AddComponent(penguin);
+
 	Sound *dieSound= new Sound(*firstEnemy, "assets/audio/boom.wav");
+
 	firstEnemy->AddComponent(dieSound);
+
 	Face *penguinFace= new Face(*firstEnemy);
+	
 	firstEnemy->AddComponent(penguinFace);
 
 	objectArray.emplace_back(firstEnemy);

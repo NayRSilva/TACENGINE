@@ -159,8 +159,13 @@ dep/State.d: src/State.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/5/backward/auto_ptr.h src/../include/Rect.hpp \
  src/../include/Face.hpp src/../include/../include/Sound.hpp \
  src/../include/../include/Component.hpp /usr/include/SDL2/SDL_mixer.h \
+ /usr/include/c++/5/chrono /usr/include/c++/5/ratio \
+ /usr/include/c++/5/limits /usr/include/c++/5/ctime \
+ /usr/include/c++/5/bits/parse_numbers.h src/../include/Music.hpp \
  src/../include/Face.hpp src/../include/Vec2.hpp /usr/include/c++/5/cmath \
- src/../include/Sound.hpp
+ src/../include/Sound.hpp src/../include/TileSet.hpp \
+ src/../include/TileMap.hpp src/../include/TileSet.hpp \
+ src/../include/../include/Component.hpp
 
 /usr/include/stdc-predef.h:
 
@@ -618,6 +623,18 @@ src/../include/../include/Component.hpp:
 
 /usr/include/SDL2/SDL_mixer.h:
 
+/usr/include/c++/5/chrono:
+
+/usr/include/c++/5/ratio:
+
+/usr/include/c++/5/limits:
+
+/usr/include/c++/5/ctime:
+
+/usr/include/c++/5/bits/parse_numbers.h:
+
+src/../include/Music.hpp:
+
 src/../include/Face.hpp:
 
 src/../include/Vec2.hpp:
@@ -625,3 +642,11 @@ src/../include/Vec2.hpp:
 /usr/include/c++/5/cmath:
 
 src/../include/Sound.hpp:
+
+src/../include/TileSet.hpp:
+
+src/../include/TileMap.hpp:
+
+src/../include/TileSet.hpp:
+
+src/../include/../include/Component.hpp:

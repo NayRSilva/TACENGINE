@@ -3,6 +3,7 @@
 
 #include"Component.hpp"
 #include "../include/Sound.hpp"
+#include <chrono>
 
 
 
@@ -16,6 +17,11 @@ class Face : public Component{
 
     private:
         int hitpoints;
+        bool destroy = false;
+        float interval;
+        float total_time;
+        std::chrono::steady_clock::time_point firstHit;
+
 
 };
 

@@ -3,6 +3,7 @@
 #include <SDL2/SDL_timer.h>
 #include <SDL2/SDL_mixer.h>
 #include <iostream>
+#include <chrono>
 
 using std::cout;
 
@@ -46,6 +47,7 @@ Game& Game::GetInstance(){
 }
 
 Game::Game(string title, int width, int height){
+	
 	if(instance == nullptr){
         instance = this;
     }else{
@@ -61,6 +63,8 @@ Game::Game(string title, int width, int height){
 		};
 		Mix_Init(MIX_INIT_MP3);
 		Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024);
+		  int Mix_audioError = Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024);
+
 		Mix_AllocateChannels(32);
 		window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, 0);
 
@@ -109,14 +113,34 @@ void Game::Run(){
 
 	//3 os objetos tem estados
 	//4 objetos sao desenhados
+	//pega o tempo de agora, steady é o relógio pra fazer comparação de tempo
+	auto anteriorframe = std::chrono::steady_clock::now();//pega o tempo quando liga
+	auto currentframe = anteriorframe;//salva esse valor
+	state->Update(0);
+
+
 	
 	while(!(state->QuitRequested())){
+
+		anteriorframe = currentframe;//troca p manter o tempo anterior atualizado
+		currentframe= std::chrono::steady_clock::now();//pega o tempo de agora
+		// std::chrono::steady_clock::time_point cf (currentframe);
+		auto diff = std::chrono::duration_cast<std::chrono::milliseconds>(currentframe - anteriorframe).count(); 
+		// float teste = diff.count();
+		// cout<<teste<<"\n";
 		// getchar();
-		state->Update(0);
-		// getchar();
+		state->Update((float) diff);
 
 		state->Render();
 		SDL_RenderPresent(renderer);
-		SDL_Delay(33);
+
+		auto newcurrentframe= std::chrono::steady_clock::now();//pega o tempo de agora
+		auto diff2 = std::chrono::duration_cast<std::chrono::milliseconds>(newcurrentframe - currentframe).count(); 
+		SDL_Delay(30);
+		SDL_Delay(diff2);
+
+
+		// Uint32 currenttime = (Uint32) calculo;
+
 	}
 }

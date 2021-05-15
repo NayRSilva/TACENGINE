@@ -18,6 +18,7 @@ class Sprite : public Component{
 
     void SetClip(int x, int y, int w, int h);
     void Render();
+    void Render(float a, float b);
     int GetWidth();
     int GetHeight();
     bool IsOpen();

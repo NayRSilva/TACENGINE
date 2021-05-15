@@ -21,10 +21,10 @@ void Music::Stop(int msToStop){
 }
 
 void Music::Open(string file){
+        music = Mix_LoadMUS(file.c_str());
     if(music==nullptr){
 		printf("Erro ao carregar musica: %s\n", SDL_GetError());
     }else{
-        Mix_LoadMUS(file.c_str());
 
     }
 }

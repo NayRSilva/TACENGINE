@@ -30,6 +30,7 @@ class Game{
         Game(string mytitle, int mywidth, int myheight);
         static Game* instance;
         State* state;
+        float time;
 
     public:
         ~Game();

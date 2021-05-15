@@ -134,10 +134,13 @@ dep/Game.d: src/Game.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/5/bits/locale_facets.tcc \
  /usr/include/c++/5/bits/basic_ios.tcc \
  /usr/include/c++/5/bits/ostream.tcc /usr/include/c++/5/istream \
- /usr/include/c++/5/bits/istream.tcc src/../include/Game.hpp \
- src/../include/State.hpp src/../include/Sprite.hpp \
- src/../include/Component.hpp src/../include/GameObject.hpp \
- /usr/include/c++/5/vector /usr/include/c++/5/bits/stl_construct.h \
+ /usr/include/c++/5/bits/istream.tcc /usr/include/c++/5/chrono \
+ /usr/include/c++/5/ratio /usr/include/c++/5/limits \
+ /usr/include/c++/5/ctime /usr/include/c++/5/bits/parse_numbers.h \
+ src/../include/Game.hpp src/../include/State.hpp \
+ src/../include/Sprite.hpp src/../include/Component.hpp \
+ src/../include/GameObject.hpp /usr/include/c++/5/vector \
+ /usr/include/c++/5/bits/stl_construct.h \
  /usr/include/c++/5/bits/stl_uninitialized.h \
  /usr/include/c++/5/bits/stl_vector.h \
  /usr/include/c++/5/bits/stl_bvector.h /usr/include/c++/5/bits/vector.tcc \
@@ -156,7 +159,7 @@ dep/Game.d: src/Game.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/5/bits/atomic_base.h \
  /usr/include/c++/5/backward/auto_ptr.h src/../include/Rect.hpp \
  src/../include/Face.hpp src/../include/../include/Sound.hpp \
- src/../include/../include/Component.hpp
+ src/../include/../include/Component.hpp src/../include/Music.hpp
 
 /usr/include/stdc-predef.h:
 
@@ -554,6 +557,16 @@ dep/Game.d: src/Game.cpp /usr/include/stdc-predef.h \
 
 /usr/include/c++/5/bits/istream.tcc:
 
+/usr/include/c++/5/chrono:
+
+/usr/include/c++/5/ratio:
+
+/usr/include/c++/5/limits:
+
+/usr/include/c++/5/ctime:
+
+/usr/include/c++/5/bits/parse_numbers.h:
+
 src/../include/Game.hpp:
 
 src/../include/State.hpp:
@@ -621,3 +634,5 @@ src/../include/Face.hpp:
 src/../include/../include/Sound.hpp:
 
 src/../include/../include/Component.hpp:
+
+src/../include/Music.hpp:

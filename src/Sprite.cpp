@@ -98,6 +98,29 @@ void Sprite::Render(){
 
 }
 
+void Sprite::Render(float a, float b){
+
+    SDL_Renderer* renderer = Game::GetInstance().GetRenderer();
+
+
+    SDL_Rect dst;
+
+    dst.x = a;
+    dst.y = b;
+    dst.w = GetWidth();
+    dst.h = GetHeight();
+
+    if(texture!=nullptr){
+            if(SDL_RenderCopy(renderer, texture, &clipRect, &dst)==0){
+        // cout<<"Success";
+    }else{
+		printf("Erro no render copy: %s\n", SDL_GetError());
+
+        };
+
+    }
+
+}
 bool Sprite::IsOpen(){
     if(texture!=nullptr){
         return true;

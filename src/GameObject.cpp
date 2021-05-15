@@ -18,7 +18,7 @@ void GameObject::Update(float dt){
     unsigned int sizevector = components.size();
         
     for(unsigned int i = 0; i < sizevector; i++) {
-        components[i]->Update(0);
+        components[i]->Update(dt);
     
     }
 
