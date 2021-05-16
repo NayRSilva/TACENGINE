@@ -1,4 +1,5 @@
 #include"../include/Sound.hpp"
+#include"../include/Resources.hpp"
 #include <iostream>
 
 using std::cout;
@@ -46,7 +47,8 @@ bool Sound::IsOpen(){
 
 void Sound::Open(string file){
     
-    chunk = Mix_LoadWAV(file.c_str());
+    // chunk = Mix_LoadWAV(file.c_str());
+    chunk = Resources::GetSound(file);
 
     if(!IsOpen()){
         cout<<"Erro no chunk: "<<SDL_GetError()<<"\n";

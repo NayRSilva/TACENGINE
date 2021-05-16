@@ -53,7 +53,7 @@ void splitToVector1(string line, vector<int> &tokens){
 
 }
 void splitToVector(string line, vector<int> &tokens){
-    cout<<"entrou\n";
+    // cout<<"entrou\n";
     // getchar();
     
     

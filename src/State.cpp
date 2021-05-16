@@ -9,9 +9,10 @@
 
 using std::cout;
 
-State::State(){
+State::State(): music("./assets/audio/bensound-dubstep.mp3"){
     quitRequested = false;
-	// music.Play(-1);
+	music.Play(-1);
+
 
 	GameObject *go= new GameObject();
 	go->box.x= 0;
@@ -31,6 +32,8 @@ State::State(){
 
 	objectArray.emplace_back(go);
     // bg= Sprite("assets/img/ocean.jpg");
+	// music = new Music("assets/audio/stageState.ogg");
+
 
 
 }

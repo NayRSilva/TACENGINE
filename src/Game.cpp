@@ -4,6 +4,7 @@
 #include <SDL2/SDL_mixer.h>
 #include <iostream>
 #include <chrono>
+#include"../include/Resources.hpp"
 
 using std::cout;
 
@@ -138,6 +139,8 @@ void Game::Run(){
 		auto diff2 = std::chrono::duration_cast<std::chrono::milliseconds>(newcurrentframe - currentframe).count(); 
 		SDL_Delay(30);
 		SDL_Delay(diff2);
+
+		Resources::ClearImages();
 
 
 		// Uint32 currenttime = (Uint32) calculo;

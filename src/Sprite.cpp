@@ -2,6 +2,7 @@
 #include"../include/Sprite.hpp"
 #include"../include/Game.hpp"
 #include <iostream>
+#include"../include/Resources.hpp"
 
 using std::cout;
 
@@ -30,21 +31,21 @@ Sprite::Sprite(GameObject& associated, string file): Component(associated){
 // }
 
 Sprite::~Sprite(){
-    if(texture!=nullptr){
-        SDL_DestroyTexture(texture);
-    }
+    // if(texture!=nullptr){
+    //     SDL_DestroyTexture(texture);
+    // }
 }
 
 void Sprite::Open(string file){
-    SDL_Renderer* renderer = Game::GetInstance().GetRenderer();
-    if(texture!=nullptr){
-        SDL_DestroyTexture(texture);
-    }
+    texture = Resources::GetImage(file);
+    // if(texture!=nullptr){
+    //     SDL_DestroyTexture(texture);
+    // }
 
 
-    texture = IMG_LoadTexture(renderer, file.c_str());
-    SDL_Surface* surface= IMG_Load(file.c_str());
-    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    // texture = IMG_LoadTexture(renderer, file.c_str());
+    // SDL_Surface* surface= IMG_Load(file.c_str());
+    // texture = SDL_CreateTextureFromSurface(renderer, surface);
 
     if(texture==nullptr){
 		printf("Erro ao criar imagem: %s\n", SDL_GetError());
@@ -55,6 +56,7 @@ void Sprite::Open(string file){
 
         }else{
 		    printf("Erro na querytexture: %s\n", SDL_GetError());
+            // getchar();
             
         }
     }
@@ -88,6 +90,7 @@ void Sprite::Render(){
     if(texture!=nullptr){
             if(SDL_RenderCopy(renderer, texture, &clipRect, &dst)==0){
         // cout<<"Success";
+        // getchar();
     }else{
 		printf("Erro no render copy: %s\n", SDL_GetError());
 

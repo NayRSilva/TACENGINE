@@ -154,7 +154,11 @@ dep/Sound.d: src/Sound.cpp /usr/include/stdc-predef.h \
  /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
- /usr/include/SDL2/SDL_mixer.h
+ /usr/include/SDL2/SDL_mixer.h src/../include/Resources.hpp \
+ /usr/include/SDL2/SDL_image.h /usr/include/SDL2/SDL.h \
+ /usr/include/c++/5/unordered_map /usr/include/c++/5/bits/hashtable.h \
+ /usr/include/c++/5/bits/hashtable_policy.h \
+ /usr/include/c++/5/bits/unordered_map.h src/../include/Sprite.hpp
 
 /usr/include/stdc-predef.h:
 
@@ -603,3 +607,19 @@ src/../include/Rect.hpp:
 /usr/include/SDL2/SDL_version.h:
 
 /usr/include/SDL2/SDL_mixer.h:
+
+src/../include/Resources.hpp:
+
+/usr/include/SDL2/SDL_image.h:
+
+/usr/include/SDL2/SDL.h:
+
+/usr/include/c++/5/unordered_map:
+
+/usr/include/c++/5/bits/hashtable.h:
+
+/usr/include/c++/5/bits/hashtable_policy.h:
+
+/usr/include/c++/5/bits/unordered_map.h:
+
+src/../include/Sprite.hpp:
