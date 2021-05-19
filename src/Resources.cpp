@@ -9,9 +9,10 @@ unordered_map<std::string, SDL_Texture*> Resources::imageTable;
 unordered_map<std::string, Mix_Music*> Resources::musicTable;
 unordered_map<std::string, Mix_Chunk*> Resources::soundTable;
 
-SDL_Texture* createTexture(string file){
+SDL_Texture* Resources::createTexture(string file){
+    
     SDL_Renderer* renderer = Game::GetInstance().GetRenderer();
-    SDL_Texture* texture; 
+    SDL_Texture* texture = nullptr; 
     texture = IMG_LoadTexture(renderer, file.c_str());
     //     SDL_Surface* surface= IMG_Load(file.c_str());
     // texture = SDL_CreateTextureFromSurface(renderer, surface);
@@ -30,7 +31,8 @@ SDL_Texture* createTexture(string file){
 
 SDL_Texture* Resources::GetImage(string file){
     if(imageTable.find(file)==imageTable.end()){//se for igual é porque nao existe
-        cout<<file<<"\n";
+        cout<<"primeira vez na tabela\n";
+        // cout<<file<<"\n";
         SDL_Texture* texture = createTexture(file);
 
         if(texture==nullptr){
@@ -38,17 +40,28 @@ SDL_Texture* Resources::GetImage(string file){
             // getchar();
             exit(EXIT_FAILURE);
         }else{
-            cout<<"imagem not null "<<file;
+            cout<<"\nimagem not null \n";
             // getchar();
             imageTable[file]= texture;
+            
 
         }
+                  for(auto t: imageTable){
+            cout<<t.first<<" "<<t.second<<"\n";
+        }
+        // getchar();
 
         return texture;
 
     }else{
-        cout<<file<<" imagem já existe\n";
+        cout<<file<<"\n imagem já existe\n";
         // getchar();
+        // getchar();
+              for(auto t: imageTable){
+            cout<<t.first<<" "<<t.second<<"\n";
+        }
+        getchar();
+
         return imageTable[file];
     }
 

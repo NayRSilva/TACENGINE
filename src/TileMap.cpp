@@ -156,7 +156,8 @@ void TileMap::RenderLayer(int layer, int cameraX, int cameraY){
 }
 
 void TileMap::Render(){
-    for(int layer = 0; layer<mapDepth; layer++){
+    int dep = GetDepth();
+    for(int layer = 0; layer<dep; layer++){
         RenderLayer(layer);
     }
 
