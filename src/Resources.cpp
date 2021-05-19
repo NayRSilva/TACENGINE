@@ -13,11 +13,11 @@ SDL_Texture* createTexture(string file){
     SDL_Renderer* renderer = Game::GetInstance().GetRenderer();
     SDL_Texture* texture; 
     texture = IMG_LoadTexture(renderer, file.c_str());
-        SDL_Surface* surface= IMG_Load(file.c_str());
-    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    //     SDL_Surface* surface= IMG_Load(file.c_str());
+    // texture = SDL_CreateTextureFromSurface(renderer, surface);
     if(texture==nullptr){
         cout<<"erro ao criar";
-        getchar();
+        // getchar();
         
     }
 
@@ -30,14 +30,15 @@ SDL_Texture* createTexture(string file){
 
 SDL_Texture* Resources::GetImage(string file){
     if(imageTable.find(file)==imageTable.end()){//se for igual é porque nao existe
+        cout<<file<<"\n";
         SDL_Texture* texture = createTexture(file);
 
         if(texture==nullptr){
             printf("Erro ao criar imagem: %s\n", SDL_GetError());
-            getchar();
+            // getchar();
             exit(EXIT_FAILURE);
         }else{
-            cout<<"imagem not null";
+            cout<<"imagem not null "<<file;
             // getchar();
             imageTable[file]= texture;
 
@@ -46,7 +47,8 @@ SDL_Texture* Resources::GetImage(string file){
         return texture;
 
     }else{
-        cout<<"imagem já existe\n";
+        cout<<file<<" imagem já existe\n";
+        // getchar();
         return imageTable[file];
     }
 

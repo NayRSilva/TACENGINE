@@ -89,10 +89,10 @@ void Sprite::Render(){
     // printf("x y %d %d",dst.x,dst.y);
     if(texture!=nullptr){
             if(SDL_RenderCopy(renderer, texture, &clipRect, &dst)==0){
-        // cout<<"Success";
-        // getchar();
+        cout<<"Success";
     }else{
-		printf("Erro no render copy: %s\n", SDL_GetError());
+		// printf("Erro no render copy: %s\n", SDL_GetError());
+        // getchar();
 
     };
 
@@ -115,9 +115,11 @@ void Sprite::Render(float a, float b){
 
     if(texture!=nullptr){
             if(SDL_RenderCopy(renderer, texture, &clipRect, &dst)==0){
-        // cout<<"Success";
+        cout<<"Success";
     }else{
-		printf("Erro no render copy: %s\n", SDL_GetError());
+		// printf("Erro no render copy: %s\n", SDL_GetError());
+        // getchar();
+
 
         };
 

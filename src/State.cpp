@@ -9,9 +9,9 @@
 
 using std::cout;
 
-State::State(): music("./assets/audio/bensound-dubstep.mp3"){
+State::State() {
     quitRequested = false;
-	music.Play(-1);
+	// music.Play(-1);
 
 
 	GameObject *go= new GameObject();
@@ -24,13 +24,20 @@ State::State(): music("./assets/audio/bensound-dubstep.mp3"){
 
 	go->box.w= bg->GetWidth();
 	go->box.h= bg->GetHeight();
+
 	go->AddComponent(bg);
+	objectArray.emplace_back(go);
+
+	go = new GameObject();
+	
+		go->box.x= 0;
+	go->box.y= 0;
 	TileSet *tileSet= new TileSet(64, 64, "assets/img/tileset.png");
 	TileMap *tileMap = new TileMap(*go,"assets/map/tileMap.txt", tileSet);
 	go->AddComponent(tileMap);
-
-
 	objectArray.emplace_back(go);
+
+
     // bg= Sprite("assets/img/ocean.jpg");
 	// music = new Music("assets/audio/stageState.ogg");
 
@@ -86,15 +93,21 @@ void State::Input() {
 			}
 		}
 		if( event.type == SDL_KEYDOWN ) {
-			// Se a tecla for ESC, setar a flag de quit
-			if( event.key.keysym.sym == SDLK_ESCAPE ) {
+			if(event.key.repeat !=1){
+
+						if( event.key.keysym.sym == SDLK_ESCAPE ) {
 				quitRequested = true;
 			}
 			// Se não, crie um objeto
 			else {
+
 				Vec2 objPos = Vec2( 200, 0 ).GetRotated( (-PI + PI*(rand() % 1001)/500.0) ) + Vec2( mouseX, mouseY );
 				AddObject((int)objPos.x, (int)objPos.y);
 			}
+
+			}
+			// Se a tecla for ESC, setar a flag de quit
+	
 		}
 	}
 }
@@ -157,8 +170,10 @@ void State::AddObject(int mouseX, int mouseY){
 
 	
 	Sprite *penguin = new Sprite(*firstEnemy, "assets/img/penguinface.png");
-	firstEnemy->box.w= penguin->GetWidth();
-	firstEnemy->box.h= penguin->GetHeight();
+	// firstEnemy->box.w= penguin->GetWidth();
+	// cout<<"\n width:" << (penguin->GetWidth());
+	// getchar();
+	// firstEnemy->box.h= penguin->GetHeight();
 
 	firstEnemy->AddComponent(penguin);
 
