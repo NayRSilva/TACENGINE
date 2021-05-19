@@ -161,7 +161,7 @@ void State::Render(){
 }
 
 void State::AddObject(int mouseX, int mouseY){
-	cout<<"Adicionando Objeto\n";
+	cout<<"\nAdicionando Objeto\n";
 
 
 	GameObject *firstEnemy= new GameObject();
@@ -175,14 +175,14 @@ void State::AddObject(int mouseX, int mouseY){
 	// getchar();
 	firstEnemy->box.h= penguin->GetHeight();
 
-	firstEnemy->AddComponent(penguin);
 
 	Sound *dieSound= new Sound(*firstEnemy, "assets/audio/boom.wav");
 
-	firstEnemy->AddComponent(dieSound);
 
 	Face *penguinFace= new Face(*firstEnemy);
 	
+	firstEnemy->AddComponent(penguin);
+	firstEnemy->AddComponent(dieSound);
 	firstEnemy->AddComponent(penguinFace);
 
 	objectArray.emplace_back(firstEnemy);

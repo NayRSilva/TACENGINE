@@ -14,8 +14,8 @@ Sprite::Sprite(GameObject& associated, string file): Component(associated){
     
     texture = nullptr;
     Open(file);
-    if(IsOpen()){
-        cout<<"textura aberta";
+    if(!IsOpen()){
+        cout<<"textura nao abriu";
     }
 }
 
@@ -77,6 +77,9 @@ int Sprite::GetHeight(){
     return clipRect.h;
 }
 void Sprite::Render(){
+    // cout<<"\nentrou no render\n";
+    // getchar();make
+
 
     SDL_Renderer* renderer = Game::GetInstance().GetRenderer();
 
@@ -89,7 +92,7 @@ void Sprite::Render(){
     // printf("x y %d %d",dst.x,dst.y);
     if(texture!=nullptr){
             if(SDL_RenderCopy(renderer, texture, &clipRect, &dst)==0){
-        cout<<"Success";
+        // cout<<"Success";
     }else{
 		// printf("Erro no render copy: %s\n", SDL_GetError());
         // getchar();
@@ -115,7 +118,7 @@ void Sprite::Render(float a, float b){
 
     if(texture!=nullptr){
             if(SDL_RenderCopy(renderer, texture, &clipRect, &dst)==0){
-        cout<<"Success";
+        // cout<<"Success";
     }else{
 		// printf("Erro no render copy: %s\n", SDL_GetError());
         // getchar();
