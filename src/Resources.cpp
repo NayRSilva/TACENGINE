@@ -46,10 +46,7 @@ SDL_Texture* Resources::GetImage(string file){
             
 
         }
-                  for(auto t: imageTable){
-            cout<<t.first<<" "<<t.second<<"\n";
-        }
-        // getchar();
+
 
         return texture;
 
@@ -57,10 +54,7 @@ SDL_Texture* Resources::GetImage(string file){
         cout<<file<<"\n imagem já existe\n";
         // getchar();
         // getchar();
-              for(auto t: imageTable){
-            cout<<t.first<<" "<<t.second<<"\n";
-        }
-        getchar();
+
 
         return imageTable[file];
     }

@@ -10,9 +10,9 @@ Sprite::Sprite(GameObject& associated) : Component(associated){
     texture= nullptr;
 }
 
-Sprite::Sprite(GameObject& associated, string file): Component(associated){
+Sprite::Sprite(GameObject& associated, string file): Component(associated), texture(Resources::GetImage(file)){
     
-    texture = nullptr;
+    // texture = nullptr;
     Open(file);
     if(!IsOpen()){
         cout<<"textura nao abriu";
@@ -37,7 +37,7 @@ Sprite::~Sprite(){
 }
 
 void Sprite::Open(string file){
-    texture = Resources::GetImage(file);
+    // texture = Resources::GetImage(file);
     // if(texture!=nullptr){
     //     SDL_DestroyTexture(texture);
     // }

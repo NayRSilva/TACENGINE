@@ -140,9 +140,7 @@ void Game::Run(){
 		SDL_Delay(30);
 		SDL_Delay(diff2);
 
-		Resources::ClearImages();
-		Resources::ClearSounds();
-		Resources::ClearMusics();
+	
 
 
 
@@ -150,4 +148,8 @@ void Game::Run(){
 		// Uint32 currenttime = (Uint32) calculo;
 
 	}
+
+		Resources::ClearImages();
+		Resources::ClearSounds();
+		Resources::ClearMusics();
 }

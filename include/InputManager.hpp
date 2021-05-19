@@ -3,16 +3,16 @@
 
 #include <unordered_map>
 
-#define LEFT_ARROW SDLK_LEFT
-#define RIGHT_ARROW SDLK_RIGHT
-#define UP_ARROW SDLK_UP
-#define DOWN_ARROW SDLK_DOWN
+#define LEFT_ARROW_KEY SDLK_LEFT
+#define RIGHT_ARROW_KEY SDLK_RIGHT
+#define UP_ARROW_KEY SDLK_UP
+#define DOWN_ARROW_KEY SDLK_DOWN
 #define ESCAPE_KEY SDLK_ESCAPE
 #define LEFT_MOUSE_BUTTON SDL_BUTTON_LEFT
 
 class InputManager {
     public:
-    
+
         void Update();
 
         bool KeyPress(int key);
