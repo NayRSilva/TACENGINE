@@ -170,10 +170,10 @@ void State::AddObject(int mouseX, int mouseY){
 
 	
 	Sprite *penguin = new Sprite(*firstEnemy, "assets/img/penguinface.png");
-	// firstEnemy->box.w= penguin->GetWidth();
+	firstEnemy->box.w= penguin->GetWidth();
 	// cout<<"\n width:" << (penguin->GetWidth());
 	// getchar();
-	// firstEnemy->box.h= penguin->GetHeight();
+	firstEnemy->box.h= penguin->GetHeight();
 
 	firstEnemy->AddComponent(penguin);
 

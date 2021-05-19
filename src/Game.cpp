@@ -141,6 +141,10 @@ void Game::Run(){
 		SDL_Delay(diff2);
 
 		Resources::ClearImages();
+		Resources::ClearSounds();
+		Resources::ClearMusics();
+
+
 
 
 		// Uint32 currenttime = (Uint32) calculo;
