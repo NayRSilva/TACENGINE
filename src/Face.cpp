@@ -1,5 +1,7 @@
 #include"../include/Face.hpp"
 #include "../include/Sound.hpp"
+// #include "../include/InputManager.hpp"
+
 #include "SDL2/SDL.h"
 #include <ctime>
 #include <iostream>
@@ -13,7 +15,6 @@ Face::Face(GameObject& associated) : Component(associated) {
     hitpoints = 30;
     total_time = 1000;
 }
-
 void Face::Damage(int damage){
 	// auto anteriorframe = std::chrono::steady_clock::now();//pega o tempo quando liga
     // auto currentframe = anteriorframe;
@@ -21,7 +22,7 @@ void Face::Damage(int damage){
     hitpoints = hitpoints-damage;
     if(hitpoints<=0){
         ///por alguma razão se eu deixo o pinguin por muito tempo e me baseio so no codigo do Game.cpp ele nao faz som
-	    firstHit = std::chrono::steady_clock::now();//pega o tempo quando liga
+	    // firstHit = std::chrono::steady_clock::now();//pega o tempo quando liga
 
         Sound* sound = reinterpret_cast<Sound*>(associated.GetComponent("Sound"));
         if(sound!=nullptr){
@@ -46,15 +47,16 @@ void Face::Update(float dt){
 
     }
     interval = interval+dt;
-    // cout<<"face: "<<dt<<"\n";
+    cout<<"face: "<<dt<<"\n";
     if(destroy == true){
         cout<<"destruir \n";
         cout<<dt<<" total:"<<total_time<<"\n";
         // getchar();
         
         if(interval>total_time){
-            cout<<"deletou";
             associated.RequestDelete();
+            cout<<"deletou";
+            // getchar();
 
         }
     }

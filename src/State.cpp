@@ -117,9 +117,13 @@ void State::Update(float dt){
 		objectArray[i]->Update(dt);
 	}
 	
-	for(int unsigned i = 0; i < objectArray.size(); i++) {
-		if(objectArray[i]->IsDead()){			
+	
+	for(int unsigned i = 0; i != objectArray.size(); i++) {
+		if(objectArray[i]->IsDead()){	
+						cout<<i<<"\n";
+						cout<<(objectArray.size())<<"\n";
 				objectArray.erase(objectArray.begin()+i);
+				// getchar();
 				i--;
 
 
@@ -160,13 +164,13 @@ void State::AddObject(int mouseX, int mouseY){
 	firstEnemy->box.w= penguin->GetWidth();
 	firstEnemy->box.h= penguin->GetHeight();
 
-	firstEnemy->AddComponent(penguin);
 
 	Sound *dieSound= new Sound(*firstEnemy, "assets/audio/boom.wav");
 
-	firstEnemy->AddComponent(dieSound);
 
 	Face *penguinFace= new Face(*firstEnemy);
+	firstEnemy->AddComponent(penguin);
+	firstEnemy->AddComponent(dieSound);
 	
 	firstEnemy->AddComponent(penguinFace);
 

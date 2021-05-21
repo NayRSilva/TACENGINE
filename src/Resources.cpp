@@ -64,10 +64,11 @@ Mix_Chunk* Resources::GetSound(string file){
 
         }
 
-        return chunk;
+        return soundTable[file];
 
     }else{
         cout<<"som já existe\n";
+        return soundTable[file];
     }
 
 }
@@ -84,10 +85,11 @@ Mix_Music* Resources::GetMusic(string file){
 
         }
 
-        return music;
+        return musicTable[file];
 
     }else{
         cout<<"musica já existe\n";
+        return musicTable[file];
     }
 
 }
