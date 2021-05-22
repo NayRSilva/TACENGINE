@@ -140,8 +140,8 @@ int& TileMap::At(int x, int y, int z){
 }
 
 void TileMap::RenderLayer(int layer, int cameraX, int cameraY){
-    int width= mapWidth;
-    int height = mapHeight;
+    int width= GetWidth();
+    int height = GetHeight();
     //pra cada linha em cada coluna
     for(int i=0; i<width; i++){
         for(int j=0; j<height; j++){
@@ -156,8 +156,8 @@ void TileMap::RenderLayer(int layer, int cameraX, int cameraY){
 }
 
 void TileMap::Render(){
-    // cout<<"\n renderizando o mapa\n";
-    for(int layer = 0; layer<mapDepth; layer++){
+    int dep = GetDepth();
+    for(int layer = 0; layer<dep; layer++){
         RenderLayer(layer);
     }
 

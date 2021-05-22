@@ -32,10 +32,10 @@ void Sound::Play(int times){
 
 void Sound::Stop(){
 
-
+    cout<<"entrou no stop\n";
     if(chunk!=nullptr){
         Mix_HaltChannel(channel);
-
+        cout<<"chanel liberado";
     }
 }
 bool Sound::IsOpen(){

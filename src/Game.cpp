@@ -5,6 +5,8 @@
 #include <iostream>
 #include <chrono>
 #include"../include/Resources.hpp"
+#include"../include/InputManager.hpp"
+
 
 using std::cout;
 
@@ -114,6 +116,7 @@ void Game::Run(){
 	//3 os objetos tem estados
 	//4 objetos sao desenhados
 	//pega o tempo de agora, steady é o relógio pra fazer comparação de tempo
+	InputManager& Imanager = InputManager::GetInstance();
 	auto anteriorframe = std::chrono::steady_clock::now();//pega o tempo quando liga
 	auto currentframe = anteriorframe;//salva esse valor
 	state->Update(0);
@@ -124,11 +127,9 @@ void Game::Run(){
 
 		anteriorframe = currentframe;//troca p manter o tempo anterior atualizado
 		currentframe= std::chrono::steady_clock::now();//pega o tempo de agora
-		// std::chrono::steady_clock::time_point cf (currentframe);
 		auto diff = std::chrono::duration_cast<std::chrono::milliseconds>(currentframe - anteriorframe).count(); 
-		// float teste = diff.count();
-		// cout<<teste<<"\n";
-		// getchar();
+
+		Imanager.Update();
 		state->Update((float) diff);
 
 		state->Render();
@@ -138,14 +139,17 @@ void Game::Run(){
 		auto diff2 = std::chrono::duration_cast<std::chrono::milliseconds>(newcurrentframe - currentframe).count(); 
 		SDL_Delay(30);
 		SDL_Delay(diff2);
+	
+	
+
 
 
 
 		// Uint32 currenttime = (Uint32) calculo;
 
 	}
-		Resources::ClearImages();
-		Resources::ClearMusics();
-		Resources::ClearSounds();
 
+		Resources::ClearImages();
+		Resources::ClearSounds();
+		Resources::ClearMusics();
 }

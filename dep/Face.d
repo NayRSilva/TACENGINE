@@ -158,7 +158,10 @@ dep/Face.d: src/Face.cpp /usr/include/stdc-predef.h \
  /usr/include/SDL2/SDL_mixer.h /usr/include/c++/5/chrono \
  /usr/include/c++/5/ratio /usr/include/c++/5/limits \
  /usr/include/c++/5/ctime /usr/include/c++/5/bits/parse_numbers.h \
- src/../include/Sound.hpp
+ src/../include/Sound.hpp src/../include/InputManager.hpp \
+ /usr/include/c++/5/unordered_map /usr/include/c++/5/bits/hashtable.h \
+ /usr/include/c++/5/bits/hashtable_policy.h \
+ /usr/include/c++/5/bits/unordered_map.h
 
 /usr/include/stdc-predef.h:
 
@@ -623,3 +626,13 @@ src/../include/../include/Component.hpp:
 /usr/include/c++/5/bits/parse_numbers.h:
 
 src/../include/Sound.hpp:
+
+src/../include/InputManager.hpp:
+
+/usr/include/c++/5/unordered_map:
+
+/usr/include/c++/5/bits/hashtable.h:
+
+/usr/include/c++/5/bits/hashtable_policy.h:
+
+/usr/include/c++/5/bits/unordered_map.h:

@@ -19,7 +19,7 @@ class Resources{
         static void ClearMusics();
         static Mix_Chunk* GetSound(string file);
         static void ClearSounds();
-
+        static SDL_Texture* createTexture(string file);
 
     private:
         static unordered_map<string, SDL_Texture*> imageTable;

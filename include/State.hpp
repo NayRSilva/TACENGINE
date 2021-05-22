@@ -25,7 +25,7 @@ class State{
     Sprite *bg;
     Music music;
     bool quitRequested;
-    void Input();
+    // void Input();
     void AddObject(int mouseX, int mouseY);
 
 };  
