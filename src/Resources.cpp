@@ -17,7 +17,6 @@ SDL_Texture* createTexture(string file){
     texture = SDL_CreateTextureFromSurface(renderer, surface);
     if(texture==nullptr){
         cout<<"erro ao criar";
-        getchar();
         
     }
 
@@ -34,7 +33,6 @@ SDL_Texture* Resources::GetImage(string file){
 
         if(texture==nullptr){
             printf("Erro ao criar imagem: %s\n", SDL_GetError());
-            getchar();
             exit(EXIT_FAILURE);
         }else{
             cout<<"imagem not null";
@@ -64,12 +62,15 @@ Mix_Chunk* Resources::GetSound(string file){
 
         }
 
-        return soundTable[file];
+        // return soundTable[file];
 
     }else{
         cout<<"som já existe\n";
-        return soundTable[file];
+        // return soundTable[file];
     }
+
+        return soundTable[file];
+
 
 }
 

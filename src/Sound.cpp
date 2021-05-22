@@ -16,11 +16,11 @@ Sound::Sound(GameObject& associated, string file) : Component(associated){
 
 void Sound::Play(int times){
     cout<<"entrei em Play";
-    cout<<"times "<<times;
+    // cout<<"times "<<times;
         if(chunk!=nullptr){
             cout<<"nao é null, devia ta tocando";
-            channel= Mix_PlayChannel(-1, chunk, 1 );
-            cout<<channel;
+            channel= Mix_PlayChannel(-1, chunk, times );
+            // cout<<channel;
             if(channel==-1){
                 cout<<"error"<<Mix_GetError();
             }
@@ -31,6 +31,8 @@ void Sound::Play(int times){
 }
 
 void Sound::Stop(){
+
+
     if(chunk!=nullptr){
         Mix_HaltChannel(channel);
 
@@ -57,9 +59,9 @@ void Sound::Open(string file){
 }
 
 Sound::~Sound(){
+    cout<<"apagando o som\n";
     if(chunk!=nullptr){
         Stop();
-        Mix_FreeChunk(chunk);
     }
 }
 void Sound::Render(){}

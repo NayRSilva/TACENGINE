@@ -11,7 +11,7 @@ using std::cout;
 
 State::State(): music("./assets/audio/bensound-dubstep.mp3"){
     quitRequested = false;
-	music.Play(-1);
+	// music.Play(-1);
 
 
 	GameObject *go= new GameObject();
@@ -25,12 +25,22 @@ State::State(): music("./assets/audio/bensound-dubstep.mp3"){
 	go->box.w= bg->GetWidth();
 	go->box.h= bg->GetHeight();
 	go->AddComponent(bg);
+	objectArray.emplace_back(go);
+	cout<<"emplaced backgroun\n";
+	go= new GameObject();
+	go->box.x=0;
+	go->box.y=0;
+
 	TileSet *tileSet= new TileSet(64, 64, "assets/img/tileset.png");
 	TileMap *tileMap = new TileMap(*go,"assets/map/tileMap.txt", tileSet);
 	go->AddComponent(tileMap);
 
-
 	objectArray.emplace_back(go);
+	cout<<"emplaced tileMap\n";
+
+
+
+
     // bg= Sprite("assets/img/ocean.jpg");
 	// music = new Music("assets/audio/stageState.ogg");
 
@@ -107,8 +117,6 @@ void State::LoadAssets(){
 }
 
 void State::Update(float dt){
-		// getchar();<<
-		// cout<<"\ntempo\n"<<dt;
 			Input();
 			// cout<<"det"<<dt<<"\n";
 	unsigned int aux= objectArray.size();
@@ -118,24 +126,26 @@ void State::Update(float dt){
 	}
 	
 	
-	for(int unsigned i = 0; i != objectArray.size(); i++) {
+	for(int unsigned i = 0; i < objectArray.size(); i++) {
 		if(objectArray[i]->IsDead()){	
-						cout<<i<<"\n";
+
+			cout<<"\n array size: ";
 						cout<<(objectArray.size())<<"\n";
 				objectArray.erase(objectArray.begin()+i);
 				// getchar();
 				i--;
+						cout<<i<< " is dead \n";
 
 
 		}
 	}
+
  
 
 }
 
 bool State::QuitRequested(){
     // cout<<"Teste quitrequested";
-    // getchar();
     return quitRequested;
 }
 
@@ -169,12 +179,14 @@ void State::AddObject(int mouseX, int mouseY){
 
 
 	Face *penguinFace= new Face(*firstEnemy);
+
 	firstEnemy->AddComponent(penguin);
 	firstEnemy->AddComponent(dieSound);
 	
 	firstEnemy->AddComponent(penguinFace);
 
 	objectArray.emplace_back(firstEnemy);
+	cout<<"emplaced enemy\n";
 
 
 }

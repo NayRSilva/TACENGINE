@@ -66,7 +66,7 @@ void splitToVector(string line, vector<int> &tokens){
                 while(getline(auxstring, token, ',')){
                     auxint= atoi(token.c_str());
                     auxint--;
-                    cout<<auxint<<"\n";
+                    // cout<<auxint<<"\n";
                     tokens.push_back(auxint);
                 }
 
@@ -156,6 +156,7 @@ void TileMap::RenderLayer(int layer, int cameraX, int cameraY){
 }
 
 void TileMap::Render(){
+    // cout<<"\n renderizando o mapa\n";
     for(int layer = 0; layer<mapDepth; layer++){
         RenderLayer(layer);
     }

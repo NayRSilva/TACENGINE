@@ -13,7 +13,7 @@ using std::cout;
 
 Face::Face(GameObject& associated) : Component(associated) {
     hitpoints = 30;
-    total_time = 1000;
+    total_time = 2000;
 }
 void Face::Damage(int damage){
 	// auto anteriorframe = std::chrono::steady_clock::now();//pega o tempo quando liga
@@ -26,9 +26,9 @@ void Face::Damage(int damage){
 
         Sound* sound = reinterpret_cast<Sound*>(associated.GetComponent("Sound"));
         if(sound!=nullptr){
-            cout<< "pewpew\n";
+            // cout<< "pewpew\n";
             sound->Play(1);
-        // SDL_Delay(300);
+        SDL_Delay(300);
         }
         // Update(0);
 
@@ -47,16 +47,14 @@ void Face::Update(float dt){
 
     }
     interval = interval+dt;
-    cout<<"face: "<<dt<<"\n";
+    // cout<<"face: "<<dt<<"\n";
     if(destroy == true){
-        cout<<"destruir \n";
-        cout<<dt<<" total:"<<total_time<<"\n";
-        // getchar();
+        // cout<<"destruir \n";
+        // cout<<dt<<" total:"<<total_time<<"\n";
         
         if(interval>total_time){
             associated.RequestDelete();
-            cout<<"deletou";
-            // getchar();
+            // cout<<"deletou";
 
         }
     }

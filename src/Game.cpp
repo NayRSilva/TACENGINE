@@ -106,7 +106,6 @@ SDL_Renderer* Game::GetRenderer(){
 }
 
 void Game::Run(){
-		// getchar();
 	
 	//1- verifica controla e carrega as telas
 
@@ -134,7 +133,7 @@ void Game::Run(){
 
 		state->Render();
 		SDL_RenderPresent(renderer);
-
+		
 		auto newcurrentframe= std::chrono::steady_clock::now();//pega o tempo de agora
 		auto diff2 = std::chrono::duration_cast<std::chrono::milliseconds>(newcurrentframe - currentframe).count(); 
 		SDL_Delay(30);
