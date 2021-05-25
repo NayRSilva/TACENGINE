@@ -42,7 +42,6 @@ void splitToVector1(string line, vector<int> &tokens){
                     cout<<token<<" foi o token\n";
                     if(token=="\n"){
                         cout<<"ola\n";
-                    // getchar();
                     }
                     auxint= atoi(token.c_str());
                     cout<<auxint<<"\n";
@@ -54,7 +53,6 @@ void splitToVector1(string line, vector<int> &tokens){
 }
 void splitToVector(string line, vector<int> &tokens){
     // cout<<"entrou\n";
-    // getchar();
     
     
 
@@ -149,7 +147,7 @@ void TileMap::RenderLayer(int layer, int cameraX, int cameraY){
             //renderizar a tile
             int tilex = i* (tileSet->GetTileWidth());
             int tiley = j*(tileSet->GetTileHeight());
-            tileSet->RenderTile(tileMatrixindex, tilex, tiley );
+            tileSet->RenderTile(tileMatrixindex, ((tilex) - (cameraX * (layer+1))), (tiley - (cameraY * (layer+1)) ));
         }
     }
 

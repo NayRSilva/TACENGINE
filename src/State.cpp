@@ -6,6 +6,8 @@
 #include"../include/TileSet.hpp"
 #include"../include/TileMap.hpp"
 #include"../include/InputManager.hpp"
+#include"../include/Camera.hpp"
+
 
 #include <iostream>
 
@@ -64,11 +66,13 @@ void State::Update(float dt){
 
 	InputManager& Iman = InputManager::GetInstance();
 
+
+	// Camera::Update(dt);
 	if(Iman.IsKeyDown(ESCAPE_KEY)||(Iman.QuitRequested())){
 		quitRequested= true;
 	}
 
-	if(Iman.IsKeyDown(SDLK_SPACE)){
+	if(Iman.KeyPress(SDLK_SPACE)){
 
 		Vec2 objPos = Vec2( 200, 0 ).GetRotated( (-PI + PI*(rand() % 1001)/500.0) ) + Vec2( Iman.GetMouseX(), Iman.GetMouseY());
 		AddObject((int)objPos.x, (int)objPos.y);
@@ -138,8 +142,6 @@ void State::AddObject(int mouseX, int mouseY){
 	firstEnemy->AddComponent(penguin);
 	firstEnemy->AddComponent(dieSound);
 	
-	firstEnemy->AddComponent(penguin);
-	firstEnemy->AddComponent(dieSound);
 	firstEnemy->AddComponent(penguinFace);
 
 	objectArray.emplace_back(firstEnemy);

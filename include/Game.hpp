@@ -31,6 +31,9 @@ class Game{
         static Game* instance;
         State* state;
         float time;
+        int frameStart;
+        float dt;
+        void CalculateDeltaTime();
 
     public:
         ~Game();
@@ -38,6 +41,7 @@ class Game{
         State& GetState();
         SDL_Renderer* GetRenderer();
         void Run();
+        float GetDeltaTime();
 };
 
 

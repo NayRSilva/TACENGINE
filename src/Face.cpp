@@ -13,7 +13,7 @@ using std::cout;
 Face::Face(GameObject &associated) : Component(associated)
 {
     hitpoints = 30;
-    total_time = 2000;
+    total_time = 2;
 }
 void Face::Damage(int damage)
 {
@@ -42,14 +42,6 @@ void Face::Update(float dt)
 {
     // cout<<"imprimir face\n";
 
-    auto currentframe = std::chrono::steady_clock::now(); //pega o tempo de agora
-    auto diff = std::chrono::duration_cast<std::chrono::milliseconds>(currentframe - firstHit).count();
-
-    while (diff < total_time)
-    {
-        currentframe = std::chrono::steady_clock::now();
-        diff = std::chrono::duration_cast<std::chrono::milliseconds>(currentframe - firstHit).count();
-    }
     interval = interval + dt;
     // cout<<"face: "<<dt<<"\n";
     if (destroy == true)
@@ -59,8 +51,8 @@ void Face::Update(float dt)
 
         if (interval > total_time)
         {
+            cout<<"deletou";
             associated.RequestDelete();
-            // cout<<"deletou";
         }
     }
     else

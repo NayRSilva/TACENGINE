@@ -18,7 +18,6 @@ SDL_Texture* Resources::createTexture(string file){
     // texture = SDL_CreateTextureFromSurface(renderer, surface);
     if(texture==nullptr){
         cout<<"erro ao criar";
-        // getchar();
         
     }
 
@@ -37,11 +36,9 @@ SDL_Texture* Resources::GetImage(string file){
 
         if(texture==nullptr){
             printf("Erro ao criar imagem: %s\n", SDL_GetError());
-            // getchar();
             exit(EXIT_FAILURE);
         }else{
             cout<<"\nimagem not null \n";
-            // getchar();
             imageTable[file]= texture;
             
 
@@ -52,8 +49,6 @@ SDL_Texture* Resources::GetImage(string file){
 
     }else{
         cout<<file<<"\n imagem já existe\n";
-        // getchar();
-        // getchar();
 
 
         return imageTable[file];

@@ -99,6 +99,15 @@ Game::~Game(){
 
 }
 
+void Game::CalculateDeltaTime(){
+	int newframe= frameStart;
+	frameStart = (SDL_GetTicks()/1000);
+	dt= (float)(frameStart-newframe);
+}
+
+float Game::GetDeltaTime(){
+	return dt;
+}
 State& Game::GetState(){
 	return *state;
 }
@@ -124,20 +133,19 @@ void Game::Run(){
 
 	
 	while(!(state->QuitRequested())){
+		instance->CalculateDeltaTime();
 
-		anteriorframe = currentframe;//troca p manter o tempo anterior atualizado
-		currentframe= std::chrono::steady_clock::now();//pega o tempo de agora
-		auto diff = std::chrono::duration_cast<std::chrono::milliseconds>(currentframe - anteriorframe).count(); 
-
+		
 		Imanager.Update();
-		state->Update((float) diff);
+
+		state->Update(dt);
 
 		state->Render();
 		SDL_RenderPresent(renderer);
 		
 		auto newcurrentframe= std::chrono::steady_clock::now();//pega o tempo de agora
 		auto diff2 = std::chrono::duration_cast<std::chrono::milliseconds>(newcurrentframe - currentframe).count(); 
-		SDL_Delay(30);
+		// SDL_Delay(30);
 		SDL_Delay(diff2);
 	
 	
