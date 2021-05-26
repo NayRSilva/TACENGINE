@@ -2,6 +2,9 @@
 #include "SDL2/SDL.h"
 #include<iostream>
 
+using std::cout;
+
+
 InputManager::InputManager() {
     quitRequested = false;
 
@@ -12,6 +15,8 @@ InputManager::InputManager() {
 
 
     updateCounter = 0;
+
+    cout<<"input manager criado\n";
 }
 
 InputManager::~InputManager(){
@@ -24,6 +29,8 @@ InputManager& InputManager::GetInstance() {
 }
 
 void InputManager::Update(){
+    cout<<"input manager update\n";
+
 
 	SDL_Event event;
 	SDL_GetMouseState(&mouseX, &mouseY);
@@ -55,6 +62,8 @@ void InputManager::Update(){
                 break;
         case SDL_KEYDOWN:
         {
+            cout<<"key down \n";
+
                 if(event.key.repeat!=1){//se nao for repetido
                     SDL_Keycode keyd = event.key.keysym.sym;
                     keyState[keyd]=true;
@@ -89,6 +98,7 @@ void InputManager::Update(){
 
 
 bool InputManager::KeyPress(int key){
+
 
     //se keyState for true E o valor em keyUpdate[key] for igual ao contador atual, entao a tecla esta sendo pressionada
     return ((keyState[key])&&(keyUpdate[key]==updateCounter));

@@ -159,7 +159,9 @@ dep/TileMap.d: src/TileMap.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/5/bits/shared_ptr_atomic.h \
  /usr/include/c++/5/bits/atomic_base.h \
  /usr/include/c++/5/backward/auto_ptr.h src/../include/Rect.hpp \
- src/../include/TileSet.hpp src/../include/../include/Component.hpp
+ src/../include/TileSet.hpp src/../include/../include/Component.hpp \
+ src/../include/Camera.hpp /usr/include/SDL2/SDL_mixer.h \
+ src/../include/Vec2.hpp /usr/include/c++/5/cmath
 
 /usr/include/stdc-predef.h:
 
@@ -626,3 +628,11 @@ src/../include/Rect.hpp:
 src/../include/TileSet.hpp:
 
 src/../include/../include/Component.hpp:
+
+src/../include/Camera.hpp:
+
+/usr/include/SDL2/SDL_mixer.h:
+
+src/../include/Vec2.hpp:
+
+/usr/include/c++/5/cmath:

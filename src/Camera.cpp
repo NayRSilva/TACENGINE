@@ -19,7 +19,7 @@ void Camera::Unfollow(){
 }
 
 void Camera::Update(float dt){
-
+    // cout<<"camera update\n";
     if(focus==nullptr){//se não
     InputManager& Iman = InputManager::GetInstance();
 
@@ -29,6 +29,7 @@ void Camera::Update(float dt){
     if(Iman.IsKeyDown(RIGHT_ARROW_KEY)){
         cout<<"pra direita\n";
         pos.x = pos.x + (speed.x * dt);
+        cout<<dt<<"\n";
     }
     if(Iman.IsKeyDown(LEFT_ARROW_KEY)){
         cout<<"pra esquerda\n";
@@ -37,11 +38,11 @@ void Camera::Update(float dt){
 
     }
     if(Iman.IsKeyDown(UP_ARROW_KEY)){
-        pos.x = pos.y - (speed.y * dt);
+        pos.y = pos.y - (speed.y * dt);
 
     }
     if(Iman.IsKeyDown(DOWN_ARROW_KEY)){
-        pos.x = pos.y + (speed.y * dt);
+        pos.y = pos.y + (speed.y * dt);
 
     }
 

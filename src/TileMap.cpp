@@ -1,6 +1,8 @@
 #include <fstream>
 #include <sstream>      // std::istringstream
 #include "../include/TileMap.hpp"
+#include "../include/Camera.hpp"
+
 
 
 
@@ -41,10 +43,10 @@ void splitToVector1(string line, vector<int> &tokens){
                 while(getline(auxstring, token, ',')){
                     cout<<token<<" foi o token\n";
                     if(token=="\n"){
-                        cout<<"ola\n";
+                        // cout<<"ola\n";
                     }
                     auxint= atoi(token.c_str());
-                    cout<<auxint<<"\n";
+                    // cout<<auxint<<"\n";
                     tokens.push_back(auxint);
                 }
 
@@ -138,6 +140,7 @@ int& TileMap::At(int x, int y, int z){
 }
 
 void TileMap::RenderLayer(int layer, int cameraX, int cameraY){
+    // cout<<"coordenadas da camera    "<<cameraX<<"\n";
     int width= GetWidth();
     int height = GetHeight();
     //pra cada linha em cada coluna
@@ -155,8 +158,11 @@ void TileMap::RenderLayer(int layer, int cameraX, int cameraY){
 
 void TileMap::Render(){
     int dep = GetDepth();
+    int x = Camera::pos.x;
+    // cout<<"verificando x: "<<x<<"\n";
+    int y = Camera::pos.y;
     for(int layer = 0; layer<dep; layer++){
-        RenderLayer(layer);
+        RenderLayer(layer, x, y);
     }
 
 

@@ -30,7 +30,7 @@ SDL_Texture* Resources::createTexture(string file){
 
 SDL_Texture* Resources::GetImage(string file){
     if(imageTable.find(file)==imageTable.end()){//se for igual é porque nao existe
-        cout<<"primeira vez na tabela\n";
+        // cout<<"primeira vez na tabela\n";
         // cout<<file<<"\n";
         SDL_Texture* texture = createTexture(file);
 

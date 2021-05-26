@@ -31,8 +31,8 @@ class Game{
         static Game* instance;
         State* state;
         float time;
-        int frameStart;
-        float dt;
+        int frameStart=0;
+        float dt= 0.0;
         void CalculateDeltaTime();
 
     public:

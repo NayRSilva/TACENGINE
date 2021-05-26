@@ -13,10 +13,10 @@ TileSet::TileSet(int tileWidth, int tileHeight, string file) : tileWidth(tileWid
 
 	tileSet = new Sprite(*go, file);
     if(tileSet!=nullptr){//se conseguir abrir o sprite
-        cout<<"abrimos o sprite do tileset\n";
+        // cout<<"abrimos o sprite do tileset\n";
         columns = ((tileSet->GetWidth())/tileWidth);
         rows = ((tileSet->GetHeight())/tileHeight);
-        cout<<"columns: "<<columns<<"\n rows:"<<rows<<"\n";
+        // cout<<"columns: "<<columns<<"\n rows:"<<rows<<"\n";
 
     }
 

@@ -33,7 +33,7 @@ void Sound::Play(int times){
 void Sound::Stop(){
 
     if(chunk!=nullptr){
-    cout<<"entrou no stop\n";
+    // cout<<"entrou no stop\n";
         Mix_HaltChannel(channel);
         cout<<"chanel liberado";
     }

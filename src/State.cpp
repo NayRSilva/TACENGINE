@@ -40,7 +40,7 @@ State::State() {
 	TileMap *tileMap = new TileMap(*go,"assets/map/tileMap.txt", tileSet);
 	go->AddComponent(tileMap);
 	objectArray.emplace_back(go);
-
+	cout<<"tile done\n";
 
 
 
@@ -64,26 +64,30 @@ void State::LoadAssets(){
 
 void State::Update(float dt){
 
+	// cout<<"entrou no state update\n";
+
+	Camera::Update(dt);
 	InputManager& Iman = InputManager::GetInstance();
+ 
 
-
-	// Camera::Update(dt);
 	if(Iman.IsKeyDown(ESCAPE_KEY)||(Iman.QuitRequested())){
 		quitRequested= true;
 	}
 
 	if(Iman.KeyPress(SDLK_SPACE)){
-
+		cout<<"space pressed\n";
 		Vec2 objPos = Vec2( 200, 0 ).GetRotated( (-PI + PI*(rand() % 1001)/500.0) ) + Vec2( Iman.GetMouseX(), Iman.GetMouseY());
 		AddObject((int)objPos.x, (int)objPos.y);
 	}
 
 	unsigned int aux= objectArray.size();
+		// cout<<"fazendo update\n";
 	
 	for(unsigned int i = 0; i < aux; i++) {
 		objectArray[i]->Update(dt);
 	}
 	
+		// cout<<"verificando p morrer\n";make
 	
 	for(int unsigned i = 0; i < objectArray.size(); i++) {
 		if(objectArray[i]->IsDead()){	
