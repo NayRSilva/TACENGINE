@@ -1,5 +1,5 @@
-dep/Face.d: src/Face.cpp /usr/include/stdc-predef.h \
- src/../include/Face.hpp src/../include/Component.hpp \
+dep/CameraFollower.d: src/CameraFollower.cpp /usr/include/stdc-predef.h \
+ src/../include/CameraFolower.hpp src/../include/Component.hpp \
  /usr/include/c++/5/iostream \
  /usr/include/x86_64-linux-gnu/c++/5/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/os_defines.h \
@@ -118,13 +118,15 @@ dep/Face.d: src/Face.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/5/bits/shared_ptr_atomic.h \
  /usr/include/c++/5/bits/atomic_base.h \
  /usr/include/c++/5/backward/auto_ptr.h src/../include/Rect.hpp \
- src/../include/../include/Sound.hpp \
- src/../include/../include/Component.hpp /usr/include/SDL2/SDL.h \
- /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
- /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h \
- /usr/include/SDL2/begin_code.h /usr/include/SDL2/close_code.h \
- /usr/include/string.h /usr/include/strings.h /usr/include/inttypes.h \
- /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/c++/5/chrono /usr/include/c++/5/ratio \
+ /usr/include/c++/5/limits /usr/include/c++/5/ctime \
+ /usr/include/c++/5/bits/parse_numbers.h src/../include/Camera.hpp \
+ /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
+ /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
+ /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
+ /usr/include/SDL2/close_code.h /usr/include/string.h \
+ /usr/include/strings.h /usr/include/inttypes.h /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
@@ -155,18 +157,12 @@ dep/Face.d: src/Face.cpp /usr/include/stdc-predef.h \
  /usr/include/SDL2/SDL_messagebox.h /usr/include/SDL2/SDL_power.h \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
- /usr/include/SDL2/SDL_mixer.h /usr/include/c++/5/chrono \
- /usr/include/c++/5/ratio /usr/include/c++/5/limits \
- /usr/include/c++/5/ctime /usr/include/c++/5/bits/parse_numbers.h \
- src/../include/Sound.hpp src/../include/InputManager.hpp \
- /usr/include/c++/5/unordered_map /usr/include/c++/5/bits/hashtable.h \
- /usr/include/c++/5/bits/hashtable_policy.h \
- /usr/include/c++/5/bits/unordered_map.h src/../include/Camera.hpp \
- src/../include/Vec2.hpp /usr/include/c++/5/cmath
+ /usr/include/SDL2/SDL_mixer.h src/../include/Vec2.hpp \
+ /usr/include/c++/5/cmath
 
 /usr/include/stdc-predef.h:
 
-src/../include/Face.hpp:
+src/../include/CameraFolower.hpp:
 
 src/../include/Component.hpp:
 
@@ -488,9 +484,17 @@ src/../include/GameObject.hpp:
 
 src/../include/Rect.hpp:
 
-src/../include/../include/Sound.hpp:
+/usr/include/c++/5/chrono:
 
-src/../include/../include/Component.hpp:
+/usr/include/c++/5/ratio:
+
+/usr/include/c++/5/limits:
+
+/usr/include/c++/5/ctime:
+
+/usr/include/c++/5/bits/parse_numbers.h:
+
+src/../include/Camera.hpp:
 
 /usr/include/SDL2/SDL.h:
 
@@ -615,30 +619,6 @@ src/../include/../include/Component.hpp:
 /usr/include/SDL2/SDL_version.h:
 
 /usr/include/SDL2/SDL_mixer.h:
-
-/usr/include/c++/5/chrono:
-
-/usr/include/c++/5/ratio:
-
-/usr/include/c++/5/limits:
-
-/usr/include/c++/5/ctime:
-
-/usr/include/c++/5/bits/parse_numbers.h:
-
-src/../include/Sound.hpp:
-
-src/../include/InputManager.hpp:
-
-/usr/include/c++/5/unordered_map:
-
-/usr/include/c++/5/bits/hashtable.h:
-
-/usr/include/c++/5/bits/hashtable_policy.h:
-
-/usr/include/c++/5/bits/unordered_map.h:
-
-src/../include/Camera.hpp:
 
 src/../include/Vec2.hpp:
 

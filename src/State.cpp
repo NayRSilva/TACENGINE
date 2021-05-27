@@ -7,6 +7,8 @@
 #include"../include/TileMap.hpp"
 #include"../include/InputManager.hpp"
 #include"../include/Camera.hpp"
+#include"../include/CameraFolower.hpp"
+
 
 
 #include <iostream>
@@ -25,11 +27,15 @@ State::State() {
 	
 	bg = new Sprite(*go, "assets/img/ocean.jpg");
 
+	CameraFollower* cf = new CameraFollower(*go);
+
+
 
 	go->box.w= bg->GetWidth();
 	go->box.h= bg->GetHeight();
 
 	go->AddComponent(bg);
+	go->AddComponent(cf);
 	objectArray.emplace_back(go);
 
 	go = new GameObject();
@@ -128,8 +134,8 @@ void State::AddObject(int mouseX, int mouseY){
 
 
 	GameObject *firstEnemy= new GameObject();
-	firstEnemy->box.x= mouseX;
-	firstEnemy->box.y= mouseY;
+	firstEnemy->box.x= mouseX + Camera::pos.x;
+	firstEnemy->box.y= mouseY + Camera::pos.y;
 
 	
 	Sprite *penguin = new Sprite(*firstEnemy, "assets/img/penguinface.png");

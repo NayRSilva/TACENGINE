@@ -169,7 +169,7 @@ dep/State.d: src/State.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/5/unordered_map /usr/include/c++/5/bits/hashtable.h \
  /usr/include/c++/5/bits/hashtable_policy.h \
  /usr/include/c++/5/bits/unordered_map.h src/../include/Camera.hpp \
- src/../include/Vec2.hpp
+ src/../include/Vec2.hpp src/../include/CameraFolower.hpp
 
 /usr/include/stdc-predef.h:
 
@@ -668,3 +668,5 @@ src/../include/InputManager.hpp:
 src/../include/Camera.hpp:
 
 src/../include/Vec2.hpp:
+
+src/../include/CameraFolower.hpp:

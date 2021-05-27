@@ -1,6 +1,8 @@
 #include "../include/Face.hpp"
 #include "../include/Sound.hpp"
 #include "../include/InputManager.hpp"
+#include "../include/Camera.hpp"
+
 
 #include "SDL2/SDL.h"
 #include <ctime>
@@ -62,8 +64,8 @@ void Face::Update(float dt)
 
         if (Iman.MousePress(SDL_BUTTON_LEFT))
         { //se o botao esquerdo do mouse for pressionado
-            int auxX = Iman.GetMouseX();
-            int auxY = Iman.GetMouseY();
+            int auxX = Iman.GetMouseX() + Camera::pos.x;
+            int auxY = Iman.GetMouseY() + Camera::pos.y;
 
             if (associated.box.Contains((float)auxX, (float)auxY))
             { //se estiver dentro da box

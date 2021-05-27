@@ -3,6 +3,8 @@
 #include"../include/Game.hpp"
 #include <iostream>
 #include"../include/Resources.hpp"
+#include"../include/Camera.hpp"
+
 
 using std::cout;
 
@@ -83,8 +85,8 @@ void Sprite::Render(){
 
 
     SDL_Rect dst;
-    dst.x= associated.box.x;
-    dst.y= associated.box.y;
+    dst.x= associated.box.x - Camera::pos.x;
+    dst.y= associated.box.y - Camera::pos.y;
     dst.w = GetWidth();
     dst.h = GetHeight();
     // printf("x y %d %d",dst.x,dst.y);

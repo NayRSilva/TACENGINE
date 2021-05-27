@@ -29,7 +29,7 @@ InputManager& InputManager::GetInstance() {
 }
 
 void InputManager::Update(){
-    cout<<"input manager update\n";
+    // cout<<"input manager update\n";
 
 
 	SDL_Event event;
@@ -62,7 +62,7 @@ void InputManager::Update(){
                 break;
         case SDL_KEYDOWN:
         {
-            cout<<"key down \n";
+            // cout<<"key down \n";
 
                 if(event.key.repeat!=1){//se nao for repetido
                     SDL_Keycode keyd = event.key.keysym.sym;

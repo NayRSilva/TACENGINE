@@ -35,6 +35,7 @@ void Camera::Update(float dt){
         cout<<"pra esquerda\n";
 
         pos.x = pos.x - (speed.x * dt);
+        cout<<"pox "<<pos.x<<"\n";
 
     }
     if(Iman.IsKeyDown(UP_ARROW_KEY)){
