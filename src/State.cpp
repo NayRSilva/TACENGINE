@@ -15,9 +15,9 @@
 
 using std::cout;
 
-State::State() {
+State::State():  music("./assets/audio/stageState.ogg") {
     quitRequested = false;
-	// music.Play(-1);
+	music.Play(-1);
 
 
 	GameObject *go= new GameObject();
