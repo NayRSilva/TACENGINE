@@ -8,6 +8,9 @@ Component::~Component(){
 
 }
 
+void Component::Start(){
+
+}
 
 void Component::Render(){}
 

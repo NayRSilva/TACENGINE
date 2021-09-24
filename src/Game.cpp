@@ -103,7 +103,6 @@ void Game::CalculateDeltaTime(){
 	int newframe= frameStart;
 	frameStart = SDL_GetTicks();
 	dt= (float)(frameStart-newframe)/1000;
-	// cout<<"calculado dt: "<<dt;
 }
 
 float Game::GetDeltaTime(){
@@ -132,10 +131,10 @@ void Game::Run(){
 	// state->Update(dt);
 
 
-	
+	state->Start();
+	cout<<"antes do while\n";
 	while(!(state->QuitRequested())){
 		instance->CalculateDeltaTime();
-		// cout<<"dt: "<<instance->dt; 
 
 		
 		Imanager.Update();

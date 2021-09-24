@@ -4,6 +4,7 @@ using namespace::std;
 
 GameObject::GameObject(){
     isDead = false;
+    started = false;
 }
 
 GameObject::~GameObject() {
@@ -14,6 +15,16 @@ GameObject::~GameObject() {
     components.clear();
 }
 
+void GameObject::Start(){
+    	int aux = components.size();
+	for(unsigned int i = 0; i < aux; i++) {
+		components[i]->Start();
+	}
+
+    started = true;
+    cout<<"game started";
+
+}
 void GameObject::Update(float dt){
     unsigned int sizevector = components.size();
         
@@ -43,7 +54,12 @@ void GameObject::RequestDelete(){
 }
 
 void GameObject::AddComponent(Component* cpt){
+    cout<<"Adicionando o componente";
+    if(started){
+        cpt->Start();
+    }
     components.emplace_back(cpt);
+
 }
 
 void GameObject::RemoveComponent(Component* cpt){

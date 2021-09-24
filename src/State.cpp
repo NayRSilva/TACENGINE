@@ -1,7 +1,8 @@
 #include "../include/State.hpp"
 #include "SDL2/SDL.h"
-#include"../include/Face.hpp"
+// #include"../include/Face.hpp"
 #include"../include/Vec2.hpp"
+#include"../include/Alien.hpp"
 #include"../include/Sound.hpp"
 #include"../include/TileSet.hpp"
 #include"../include/TileMap.hpp"
@@ -16,6 +17,7 @@
 using std::cout;
 
 State::State():  music("./assets/audio/stageState.ogg") {
+	started = false;
     quitRequested = false;
 	music.Play(-1);
 
@@ -46,21 +48,36 @@ State::State():  music("./assets/audio/stageState.ogg") {
 	TileMap *tileMap = new TileMap(*go,"assets/map/tileMap.txt", tileSet);
 	go->AddComponent(tileMap);
 	objectArray.emplace_back(go);
-	cout<<"tile done\n";
+
+	GameObject *goalien= new GameObject();
+	Alien *alien = new Alien(*goalien, 4);
+
+	goalien->box.x = 512;
+	goalien->box.y=300;
+
+	goalien->AddComponent(alien);
+	objectArray.emplace_back(goalien);
 
 
-
-    // bg= Sprite("assets/img/ocean.jpg");
-	// music = new Music("assets/audio/stageState.ogg");
 
 
 
 }
+
 
 State::~State(){
     objectArray.clear();
 }
 
+void State::Start(){
+	LoadAssets();
+	unsigned int aux = objectArray.size();
+	for(unsigned int i = 0; i < aux; i++) {
+		objectArray[i]->Start();
+	}
+
+	started = true;
+}
 
 
 
@@ -80,20 +97,20 @@ void State::Update(float dt){
 		quitRequested= true;
 	}
 
-	if(Iman.KeyPress(SDLK_SPACE)){
-		cout<<"space pressed\n";
-		Vec2 objPos = Vec2( 200, 0 ).GetRotated( (-PI + PI*(rand() % 1001)/500.0) ) + Vec2( Iman.GetMouseX(), Iman.GetMouseY());
-		AddObject((int)objPos.x, (int)objPos.y);
-	}
+	// if(Iman.KeyPress(SDLK_SPACE)){
+	// 	cout<<"space pressed\n";
+	// 	Vec2 objPos = Vec2( 200, 0 ).GetRotated( (-PI + PI*(rand() % 1001)/500.0) ) + Vec2( Iman.GetMouseX(), Iman.GetMouseY());
+	// 	AddObject((int)objPos.x, (int)objPos.y);
+	// }
 
-	unsigned int aux= objectArray.size();
-		// cout<<"fazendo update\n";
+	// unsigned int aux= objectArray.size();
+	// 	// cout<<"fazendo update\n";
 	
-	for(unsigned int i = 0; i < aux; i++) {
+	for(unsigned int i = 0; i < objectArray.size(); i++) {
 		objectArray[i]->Update(dt);
 	}
 	
-		// cout<<"verificando p morrer\n";make
+		// cout<<"verificando p morrer\n";
 	
 	for(int unsigned i = 0; i < objectArray.size(); i++) {
 		if(objectArray[i]->IsDead()){	
@@ -129,33 +146,62 @@ void State::Render(){
 //    bg.Render(0,0);
 }
 
-void State::AddObject(int mouseX, int mouseY){
+std::weak_ptr<GameObject> State::AddObject(GameObject* go){
 	cout<<"\nAdicionando Objeto\n";
 
+	std::shared_ptr<GameObject> pontObject(go);
+	objectArray.emplace_back(pontObject);
 
-	GameObject *firstEnemy= new GameObject();
-	firstEnemy->box.x= mouseX + Camera::pos.x;
-	firstEnemy->box.y= mouseY + Camera::pos.y;
+	if(go->started){
+		go->Start();
+	}
+	std::weak_ptr<GameObject>weakpoint(pontObject);
+
+	return weakpoint;
 
 	
-	Sprite *penguin = new Sprite(*firstEnemy, "assets/img/penguinface.png");
-	firstEnemy->box.w= penguin->GetWidth();
-	// cout<<"\n width:" << (penguin->GetWidth());
-	firstEnemy->box.h= penguin->GetHeight();
 
 
-	Sound *dieSound= new Sound(*firstEnemy, "assets/audio/boom.wav");
+	// GameObject *firstEnemy= new GameObject();
+	// firstEnemy->box.x= mouseX + Camera::pos.x;
+	// firstEnemy->box.y= mouseY + Camera::pos.y;
 
-
-	Face *penguinFace= new Face(*firstEnemy);
-
-	firstEnemy->AddComponent(penguin);
-	firstEnemy->AddComponent(dieSound);
 	
-	firstEnemy->AddComponent(penguinFace);
+	// Sprite *penguin = new Sprite(*firstEnemy, "assets/img/penguinface.png");
+	// firstEnemy->box.w= penguin->GetWidth();
+	// // cout<<"\n width:" << (penguin->GetWidth());
+	// firstEnemy->box.h= penguin->GetHeight();
 
-	objectArray.emplace_back(firstEnemy);
-	cout<<"emplaced enemy\n";
+
+	// Sound *dieSound= new Sound(*firstEnemy, "assets/audio/boom.wav");
 
 
+	// Face *penguinFace= new Face(*firstEnemy);
+
+	// firstEnemy->AddComponent(penguin);
+	// firstEnemy->AddComponent(dieSound);
+	
+	// firstEnemy->AddComponent(penguinFace);
+
+	// objectArray.emplace_back(firstEnemy);
+	// cout<<"emplaced enemy\n";
+
+
+}
+
+std::weak_ptr< GameObject > State::GetObjectPtr(GameObject* go){
+	unsigned int aux= objectArray.size();
+	
+	for(unsigned int i = 0; i < aux; i++) {
+		if(go == objectArray[i].get()){
+			std::weak_ptr<GameObject> weakAddress(objectArray[i]);
+			return weakAddress;
+		}
+
+	}
+	std::shared_ptr<GameObject> point(go);
+
+	std::weak_ptr<GameObject>weakGo(point);
+
+	return weakGo;
 }

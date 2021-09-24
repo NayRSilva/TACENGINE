@@ -24,3 +24,16 @@ bool Rect::Contains(float mouseX, float mouseY){
     return false;
 
 }
+void Rect::SetCenter(Vec2 vector){
+    this->x=  vector.x - (w/2);
+    this->y = vector.y - (h/2);
+
+}
+
+Vec2 Rect::GetCenter(){
+    float auxX= (w/2)+ this->x;//a largura vai do ponto x até a metade da largura, ou seja o meio
+    float auxY = (h/2) + this->y;//same same
+
+    Vec2 center= Vec2(auxX, auxY);
+    return center;
+}

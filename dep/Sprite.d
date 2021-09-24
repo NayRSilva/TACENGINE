@@ -155,14 +155,9 @@ dep/Sprite.d: src/Sprite.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/5/bits/atomic_base.h \
  /usr/include/c++/5/backward/auto_ptr.h src/../include/Rect.hpp \
  src/../include/Game.hpp src/../include/State.hpp \
- src/../include/Sprite.hpp src/../include/Face.hpp \
- src/../include/../include/Sound.hpp \
- src/../include/../include/Component.hpp /usr/include/SDL2/SDL_mixer.h \
- /usr/include/c++/5/chrono /usr/include/c++/5/ratio \
- /usr/include/c++/5/limits /usr/include/c++/5/ctime \
- /usr/include/c++/5/bits/parse_numbers.h src/../include/Music.hpp \
- src/../include/Resources.hpp /usr/include/c++/5/unordered_map \
- /usr/include/c++/5/bits/hashtable.h \
+ src/../include/Sprite.hpp src/../include/Music.hpp \
+ /usr/include/SDL2/SDL_mixer.h src/../include/Resources.hpp \
+ /usr/include/c++/5/unordered_map /usr/include/c++/5/bits/hashtable.h \
  /usr/include/c++/5/bits/hashtable_policy.h \
  /usr/include/c++/5/bits/unordered_map.h src/../include/Camera.hpp \
  src/../include/Vec2.hpp /usr/include/c++/5/cmath
@@ -623,25 +618,9 @@ src/../include/State.hpp:
 
 src/../include/Sprite.hpp:
 
-src/../include/Face.hpp:
-
-src/../include/../include/Sound.hpp:
-
-src/../include/../include/Component.hpp:
+src/../include/Music.hpp:
 
 /usr/include/SDL2/SDL_mixer.h:
-
-/usr/include/c++/5/chrono:
-
-/usr/include/c++/5/ratio:
-
-/usr/include/c++/5/limits:
-
-/usr/include/c++/5/ctime:
-
-/usr/include/c++/5/bits/parse_numbers.h:
-
-src/../include/Music.hpp:
 
 src/../include/Resources.hpp:
 

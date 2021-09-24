@@ -1,0 +1,16 @@
+
+            Vec2 myOldPosition= Vec2(associated.box.x, associated.box.y);
+            distance = Vec2::GetHipo(action.pos, myOldPosition);//é o triangulo.
+            Vec2 NormalizedVec = Vec2::Normalize(myOldPosition, action.pos);
+            float variacaoEspaco = cspeed*dt;//multiplico minha velocidade (km/tempo) pelo dt que é o intervalo de tempo de update e consigo a distancia que eu movo por tempo
+
+            if(distance<variacaoEspaco){
+                associated.box.y = action.pos.y;//posiçoes finais
+                associated.box.x = action.pos.x;//posicoes finais
+                taskQueue.pop();
+            }else{
+                associated.box.y = (NormalizedVec.y * variacaoEspaco) + NormalizedVec.y;//atualiza o valor da posiçao de associated box pq quando entrar em update de novo vamos ter uma diferença menor
+                associated.box.x = (NormalizedVec.x * variacaoEspaco) + NormalizedVec.x;
+                //nao pop pq a gente ta num loop que so vai pop quando distance<variaçao que eu for fazer
+
+            }

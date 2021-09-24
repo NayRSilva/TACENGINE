@@ -18,6 +18,7 @@ class GameObject{
     public: 
         GameObject();
         ~GameObject();
+        void Start();
         void Update(float dt);
         void Render();
         bool IsDead();
@@ -26,9 +27,10 @@ class GameObject{
         void RemoveComponent(Component* cpt);
         Component* GetComponent(string type);
         Rect box;
+        bool started;
 
     private:
-        vector<std::unique_ptr<Component>> components;
+        vector<std::shared_ptr<Component>> components;
         bool isDead;
 
 };

@@ -39,9 +39,8 @@ void splitToVector1(string line, vector<int> &tokens){
                 istringstream auxstring(line);
                 string token;
                 int auxint;
-                cout<<"Lendo o mapa: \n";
                 while(getline(auxstring, token, ',')){
-                    cout<<token<<" foi o token\n";
+                    // cout<<token<<" foi o token\n";
                     if(token=="\n"){
                         // cout<<"ola\n";
                     }
@@ -62,7 +61,6 @@ void splitToVector(string line, vector<int> &tokens){
                 istringstream auxstring(line);
                 string token;
                 int auxint;
-                cout<<"Lendo o mapa: \n";
                 while(getline(auxstring, token, ',')){
                     auxint= atoi(token.c_str());
                     auxint--;
@@ -103,16 +101,16 @@ void TileMap::Load(string file){
                 
             }else{
                 if(linha.empty()){
-                    cout<<"linha vazia\n";
+                    // cout<<"linha vazia\n";
                 }else{
-                    cout<<"marcador\n";
+                    // cout<<"marcador\n";
                     splitToVector(linha, tokens );
                     for(auto t:tokens){
                         tileMatrix.push_back(t);
                     }
-                    cout<<"matriz: ";
+                    // cout<<"matriz: ";
                     for (auto m: tileMatrix){
-                        cout<<m<<" ";
+                        // cout<<m<<" ";
                     }
                 // getchar();
                 }               

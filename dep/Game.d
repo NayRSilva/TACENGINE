@@ -161,9 +161,7 @@ dep/Game.d: src/Game.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/5/bits/atomic_base.h \
  /usr/include/c++/5/backward/auto_ptr.h src/../include/Rect.hpp \
  src/../include/InputManager.hpp src/../include/Game.hpp \
- src/../include/State.hpp src/../include/Face.hpp \
- src/../include/../include/Sound.hpp \
- src/../include/../include/Component.hpp src/../include/Music.hpp
+ src/../include/State.hpp src/../include/Music.hpp
 
 /usr/include/stdc-predef.h:
 
@@ -644,11 +642,5 @@ src/../include/InputManager.hpp:
 src/../include/Game.hpp:
 
 src/../include/State.hpp:
-
-src/../include/Face.hpp:
-
-src/../include/../include/Sound.hpp:
-
-src/../include/../include/Component.hpp:
 
 src/../include/Music.hpp:

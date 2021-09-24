@@ -47,7 +47,9 @@ void InputManager::Update(){
             /* code */
             break;
         case SDL_MOUSEBUTTONDOWN:
-              {  int but = event.button.button;
+              {  
+                  cout<<"Mouse button down\n";
+                  int but = event.button.button;
                 mouseState[but]= true;
                 mouseUpdate[but]=updateCounter;
                 }

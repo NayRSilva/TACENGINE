@@ -13,7 +13,9 @@ class Vec2{
         Vec2 operator+(Vec2 b);
         Vec2 operator-(Vec2 b);
         Vec2 MultEscalar(Vec2 a, float escalar);
-        Vec2 GetRotated(float angle);
+        Vec2 Rotate(float angle);
+        static float GetHipo(Vec2 newpos, Vec2 oldpos);
+        static Vec2 Normalize(Vec2 vec, Vec2 othervec);
 
 
 
